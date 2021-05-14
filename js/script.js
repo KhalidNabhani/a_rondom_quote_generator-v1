@@ -10,19 +10,69 @@ project 1 - A Random Quote Generator
 /*** 
  * `quotes` array 
 ***/
+const quotes=[
+  {
+  quote:"If anyone suppresses anger when he is in a position to give vent to it, Allah, the Exalted, will call him on the Day of Resurrection over the heads of all creatures, and ask him to choose any of the bright and large eyed maidens he wishes.",
+  source :"Mu'adh ibn Ana",
+  citation:"Sunan Abi Dawud 4777",
+  year:""
+  },
 
+  {
+  quote:"2",
+  source :"",
+  citation:"",
+  year:""
+  },
 
+  {
+  quote:"3",
+  source :"",
+  citation:"",
+  year:""
+  },
+
+  {
+  quote:"4",
+  source :"",
+  citation:"",
+  year:""
+  },
+
+  {
+  quote:"5",
+  source :"",
+  citation:"",
+  year:""
+  },
+]
+  
+
+  
 
 /***
  * `getRandomQuote` function
 ***/
-
+function getRandomQuote (){
+  randomNo = Math.floor(Math.random()* quotes.length);
+  return quotes[randomNo];
+}
 
 
 /***
  * `printQuote` function
 ***/
+function printQuote () {
+ 
 
+  randomQuote = getRandomQuote();
+  
+  let html =`<p calss="quote"> ${randomQuote.quote} </p>`;
+  html += `<p calss="source"> ${randomQuote.source} `;
+  html += `</p>`;
+  console.log(html)
+  return document.getElementById('quot-box').innerHTML= html;
+}
 
 
 /***
