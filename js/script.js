@@ -12,38 +12,43 @@ project 1 - A Random Quote Generator
 ***/
 const quotes=[
   {
-  quote:"If anyone suppresses anger when he is in a position to give vent to it, Allah, the Exalted, will call him on the Day of Resurrection over the heads of all creatures, and ask him to choose any of the bright and large eyed maidens he wishes.",
-  source :"Mu'adh ibn Ana",
+  quote: "There is none amongst the Muslims, who plants a tree or sows seeds, and then a bird, or a person or an animals eats from it, but is regarded as a charitable gift for him",
+  source :"Prophet Mohammedﷺ",
   citation:"Sunan Abi Dawud 4777",
-  year:""
+  year:"610-632 AD",
+  grade:"Sahih"
   },
 
   {
-  quote:"2",
-  source :"",
+  quote:"A good deed done to an animal is as meritorious as a good deed done to a human being, while an act of cruelty to an animal is as bad as an act of cruelty to a human being",
+  source :"Prophet Mohammedﷺ",
   citation:"",
-  year:""
+  year:"610-632 AD",
+  grade:""
   },
 
   {
-  quote:"3",
-  source :"",
-  citation:"",
-  year:""
+  quote:"You will not have secure faith until you love one another and have mercy on those who live upon the earth.",
+  source :"Prophet Mohammedﷺ",
+  citation: "Hadiths: Bukhari, Muslim, and Abu Dawud",
+  year:"610-632 AD",
+  grade:""
   },
 
   {
-  quote:"4",
-  source :"",
-  citation:"",
-  year:""
+  quote:"Fear Allah in these mute animals, and ride them when they are fit to be ridden, and let them go free when … they (need to) rest.",
+  source :"Prophet Mohammedﷺ",
+  citation:"Hadith: Abu Dawud",
+  year:"610-632 AD",
+  grade:""
   },
 
   {
-  quote:"5",
-  source :"",
-  citation:"",
-  year:""
+  quote:"May Allah curse anyone who maims animals.",
+  source :"Prophet Mohammedﷺ",
+  citation:"Hadith: Bukhari",
+  year:"610-632 AD",
+  grade:""
   },
 ]
   
@@ -52,6 +57,9 @@ const quotes=[
 
 /***
  * `getRandomQuote` function
+ *  function should create a random number, 
+ *  and use that random number to return a random 
+ *  quote object from the quotes array.
 ***/
 function getRandomQuote (){
   randomNo = Math.floor(Math.random()* quotes.length);
@@ -61,17 +69,33 @@ function getRandomQuote (){
 
 /***
  * `printQuote` function
+ * 1- call the getRandomQuote function, 
+ * 2- use the returned quote object to build a string of HTML and quote properties, 
+ * 3- then use that string to display a random quote in the browser.
 ***/
 function printQuote () {
  
 
-  randomQuote = getRandomQuote();
+  randomQuote = getRandomQuote();   // created variable to store a quote selected randomly 
   
-  let html =`<p calss="quote"> ${randomQuote.quote} </p>`;
-  html += `<p calss="source"> ${randomQuote.source} `;
-  html += `</p>`;
-  console.log(html)
-  return document.getElementById('quot-box').innerHTML= html;
+  
+   // using  template literalsto concatenate string into html 
+ 
+  let html =` <p class="quote"> ${randomQuote.quote} </p>`;
+  html += `<p class= "source"> ${randomQuote.source} `;
+
+  if (randomQuote.citation){
+    html += `<span class = "citation"> ${randomQuote.citation}</span>`;
+
+  }
+  if (randomQuote.year){
+    html += `<span class = "year"> ${randomQuote.year}</span>`;
+
+  }
+  html += `</p>`; 
+  //insert web apge with covatenated string of random quote
+  document.getElementById("quote-box").innerHTML= html;
+  return html;
 }
 
 
