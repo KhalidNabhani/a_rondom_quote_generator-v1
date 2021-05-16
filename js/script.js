@@ -51,9 +51,21 @@ const quotes=[
   grade:""
   },
 ]
-  
+ /************************
+  * create a rondome number 
+  * param max nmber to return 
+  * return the random number 
+  * ********************** */ 
+function randomNumber(max){
+  return Math.floor(Math.random()* max);
+}
 
-  
+/**************
+ * Generate cahnge the background to random color each time its called 
+ ***********/
+function randomBackgroundColors () {
+  return document.body.style.backgroundColor = `rgb(${randomNumber(256)},${randomNumber(256)},${randomNumber(256)})`;
+} 
 
 /***
  * `getRandomQuote` function
@@ -62,7 +74,7 @@ const quotes=[
  *  quote object from the quotes array.
 ***/
 function getRandomQuote (){
-  randomNo = Math.floor(Math.random()* quotes.length);
+  randomNo = randomNumber(quotes.length);
   return quotes[randomNo];
 }
 
@@ -93,11 +105,22 @@ function printQuote () {
 
   }
   html += `</p>`; 
-  //insert web apge with covatenated string of random quote
+
+
+  //change color of page 
+  randomBackgroundColors();
+
+  // update the page with new random quote 
   document.getElementById("quote-box").innerHTML= html;
+
   return html;
 }
 
+
+
+
+//  print a new quote to the page at regular intervals of 15 seconds.
+setInterval(printQuote, 15000);
 
 /***
  * click event listener for the print quote button
