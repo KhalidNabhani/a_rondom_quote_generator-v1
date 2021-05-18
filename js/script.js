@@ -69,7 +69,7 @@ function randomBackgroundColors () {
 
 /***
  * `getRandomQuote` function
- *  function should create a random number, 
+ *  call randomNumber() function with argument = quotes.length , 
  *  and use that random number to return a random 
  *  quote object from the quotes array.
 ***/
@@ -105,6 +105,9 @@ function printQuote () {
 
   }
   html += `</p>`; 
+  if (randomQuote.grade){
+    html += `<span class = "grade"> ${randomQuote.grade}</span>`;
+  }
 
 
   //change color of page 
